@@ -58,10 +58,9 @@ src/
 ├── features/       -> Страници и логика по модули (Auth, Courses, Materials, AI, Profile)
 ├── hooks/          -> Потребителски React hooks
 ├── services/       -> API комуникация (axios)
-├── routes/         -> Дефиниране на публични и защитени маршрути
-├── context/        -> Глобални контексти (AuthContext, AlertContext)
-├── App.jsx         -> Главен компонент
-├── main.jsx        -> Точка за стартиране на приложението
+├── context/        -> Глобални контексти (AuthContext)
+├── App.js          -> Главен компонент
+├── index.js        -> Точка за стартиране на приложението
 └── index.css       -> Глобални стилове
 ```
 
@@ -139,7 +138,7 @@ npm run dev
 ```
 
 **Среда на разработка:**  
-Приложението ще стартира на: [http://localhost:5173](http://localhost:5173)
+Приложението ще стартира на: [http://localhost:3000](http://localhost:5173)
 
 ---
 
