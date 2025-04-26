@@ -1,70 +1,157 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Документация за проект "AI Learning Hub Frontend (ReactJS)"
 
-## Available Scripts
+## Съдържание
+1. Увод  
+2. Проектиране на приложението  
+    - Предметна област  
+    - Основни страници и функционалности  
+    - Архитектура и структура на проекта  
+3. Реализация  
+    - Използвани езици и технологии  
+    - Основни компоненти  
+    - Навигация и маршрутизация  
+    - Интеграция с бекенд API  
+4. Стартиране на проекта  
+5. Заключение  
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 1. Увод
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1.1 Цели на проекта
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Фронтенд приложението **AI Learning Hub** има за цел да предостави модерен, интуитивен и отзивчив потребителски интерфейс за взаимодействие с бекенд услугите на платформата за обучение. Изградено е с помощта на ReactJS и използва REST API за цялата си функционалност.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Проектиране на приложението
 
-### `npm run build`
+### 2.1 Предметна област
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Приложението обслужва:
+- Студенти, които преглеждат и използват учебни материали.
+- Преподаватели, които управляват курсове и създават нови материали.
+- Администратори за управление на съдържание и потребители.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2.2 Основни страници и функционалности
 
-### `npm run eject`
+- **Начална страница** — Представяне на платформата, популярни курсове.
+- **Вход и регистрация** — Управление на потребителската автентикация (JWT).
+- **Табло (Dashboard)** — Персонализиран изглед според ролята на потребителя.
+- **Курсове** — Преглед, записване и създаване на курсове.
+- **Материали** — Преглед на учебни материали по курсове.
+- **AI Генерация** — Генериране на материали, тестове и диаграми чрез AI.
+- **Тестове и напредък** — Попълване на тестове и анализ на напредъка.
+- **Потребителски профил** — Преглед и редакция на профил.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2.3 Архитектура и структура на проекта
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── assets/         -> Статични файлове (снимки, икони, стилове)
+├── components/     -> Переизползваеми компоненти (бутони, модали)
+├── features/       -> Страници и логика по модули (Auth, Courses, Materials, AI, Profile)
+├── hooks/          -> Потребителски React hooks
+├── services/       -> API комуникация (axios)
+├── routes/         -> Дефиниране на публични и защитени маршрути
+├── context/        -> Глобални контексти (AuthContext, AlertContext)
+├── App.jsx         -> Главен компонент
+├── main.jsx        -> Точка за стартиране на приложението
+└── index.css       -> Глобални стилове
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 3. Реализация
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3.1 Използвани езици и технологии
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Технология | Версия | Описание |
+|:---|:---|:---|
+| ReactJS | 18+ | Основен библиотека за изграждане на SPA |
+| React Router | 6+ | Навигация и маршрутизация |
+| Axios | 1+ | Работа с HTTP заявки |
+| TailwindCSS | 3+ | Стилове и бързо оформление |
+| Context API | - | Глобално управление на състояние |
+| Vite | 4+ | Бърз инструмент за разработка и билд |
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3.2 Основни компоненти
 
-### Analyzing the Bundle Size
+- **AuthContext** — Управление на автентикация и JWT токен.
+- **ProtectedRoute** — Компонент за защита на маршрути.
+- **CourseCard**, **MaterialCard** — Показване на курсове и материали.
+- **Dashboard** — Динамично табло според ролята на потребителя.
+- **AI Interaction Forms** — Форми за генериране на материали, тестове, диаграми.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### 3.3 Навигация и маршрутизация
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Използва се `react-router-dom` за дефиниране на маршрути:
+- `/` — Начална страница
+- `/login` — Вход
+- `/register` — Регистрация
+- `/dashboard` — Табло
+- `/courses` — Всички курсове
+- `/courses/:id` — Материали на курс
+- `/materials/:id` — Детайли за материал
+- `/ai/generate` — AI Генериране
+- `/profile` — Профил на потребител
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3.4 Интеграция с бекенд API
 
-### Deployment
+Всички API заявки се изпълняват чрез Axios и използват токена от `AuthContext`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+import axios from 'axios';
 
-### `npm run build` fails to minify
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api',
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  },
+});
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default api;
+```
+
+---
+
+## 4. Стартиране на проекта
+
+**Изисквания:**
+- Node.js 18+
+- npm или yarn
+
+**Инсталиране и стартиране:**
+```bash
+npm install
+npm run dev
+```
+
+**Среда на разработка:**  
+Приложението ще стартира на: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 5. Заключение
+
+Фронтендът на **AI Learning Hub** е изграден с акцент върху:
+- Модерно и интуитивно потребителско изживяване.
+- Чист и организиран код.
+- Лесна интеграция и разширяване.
+- Поддръжка на всички основни функционалности на бекенда.
+
+Проектът е подготвен за мащабиране и бъдещи подобрения като:
+- Мобилна оптимизация
+- PWA (Progressive Web App) възможности
+- Push известия и real-time комуникация
